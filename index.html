@@ -19,8 +19,13 @@
         <tr>
           <th>Name</th>
           <th>Type</th>
-          <th>City</th>
-          <th>Address</th>
+          <th>Country</th>
+          <th>Region</th>
+	  <th>City</th>
+	  <th>District</th>
+	  <th>Street</th>
+	  <th>Home</th>
+	  <th>Work Hours</th>
         </tr>
       </thead>
       <tbody id="tableBody">        
@@ -45,53 +50,31 @@
                     $(xml).find('LOCATION').each(function() {
                         
                         // Append new data to the tbody element.
-                       $strana = 'No information';
-						if ($(this).find('A0_NAME').text()=='EE'){
-							$strana = 'Estonia';
-						}
-						else if ($(this).find('A0_NAME').text()=='LV'){
-							$strana = 'Latvia';
-						}
-						else if ($(this).find('A0_NAME').text()=='LT'){
-							$strana = 'Lithuania';
-						}
-						$region = 'No information';
-						if ($(this).find('A1_NAME').text()!=''){
-							$region = $(this).find('A1_NAME').text();
-						}
-						$gorod = 'No information';
-						if ($(this).find('A2_NAME').text()!=''){
-							$gorod = $(this).find('A2_NAME').text();
-						}
-						$ulica = 'No information';
-						if ($(this).find('A5_NAME').text()!=''){
-							$ulica = $(this).find('A5_NAME').text();
-						}
-						$dom = 'No information';
-						if ($(this).find('A7_NAME').text()!=''){
-							$dom = $(this).find('A7_NAME').text();
-						}
-						$hv = 'No information';
-						if ($(this).find('SERVICE_HOURS').text()!=''){
-							$hv = $(this).find('SERVICE_HOURS').text();
-						}
-						$tip = 'No information';
-						if ($(this).find('TYPE').text()=='0'){
-							$tip = 'Почтовый автомат';
-						}
-						else if ($(this).find('TYPE').text()=='1'){
-							$tip = 'Почтовое отделение';
-						}
+			$Country = '-';
+				if ($(this).find('A0_NAME').text()=='EE'){ $Country = 'Estonia'; }
+				else if ($(this).find('A0_NAME').text()=='LV'){ $Country = 'Latvia'; }
+				else if ($(this).find('A0_NAME').text()=='LT'){ $Country = 'Lithuania'; }
+			$Region = '-';
+				if ($(this).find('A1_NAME').text()!=''){ $Region = $(this).find('A1_NAME').text(); }
+			$City = '-';
+			    	if ($(this).find('A2_NAME').text()!=''){ $City = $(this).find('A2_NAME').text(); }
+			$District = '-';
+			    	if ($(this).find('A3_NAME').text()!=''){ $District = $(this).find('A3_NAME').text(); }
+			$Street = '-';
+				if ($(this).find('A5_NAME').text()!=''){ $Street = $(this).find('A5_NAME').text(); }
+			$Home = '-';
+				if ($(this).find('A7_NAME').text()!=''){ $Home = $(this).find('A7_NAME').text(); }
+			$SH = '-';
+				if ($(this).find('SERVICE_HOURS').text()!=''){ $SH = $(this).find('SERVICE_HOURS').text(); }
+			$Type = '-';
+				if ($(this).find('TYPE').text()=='0'){ $Type = 'Parcel machine'; }
+				else if ($(this).find('TYPE').text()=='1'){ $Type = 'Post office'; }
                         $('#tableBody').append(
                             '<tr>' +
-                                '<td>' +
-                                    $(this).find('NAME').text() + '</td> ' +
-                                '<td>' +
-                                    $tip + '</td> ' +
-                                '<td>' +
-                                    'Страна: ' + $strana + ' | Регион: ' + $region + ' | Город: ' + $gorod + ' | Улица: ' + $ulica + ' | Дом: ' + $dom + '</td> ' +
-                                '<td>' +
-                                    $hv + '</td> ' +
+                                '<td>' + $(this).find('NAME').text() + '</td>' +
+                                '<td>' + $Type + '</td>' +
+                                '<td>' + 'Country: ' +$Country+'<br/>'+'Region: ' +$Region+'<br/>'+'City: ' +$City+'<br/>'+ 'District: ' +$District+'<br/>'+'Street: ' +$Street+'<br/>'+'Home: ' +$Home+'</td> ' +
+                                '<td>' +$SH + '</td> ' +
                             '</tr>');
                     });
                 }
