@@ -46,22 +46,54 @@
                     $(xml).find('LOCATION').each(function() {
                         
                         // Append new data to the tbody element.
+                       $strana = 'No information';
+						if ($(this).find('A0_NAME').text()=='EE'){
+							$strana = 'Estonia';
+						}
+						else if ($(this).find('A0_NAME').text()=='LV'){
+							$strana = 'Latvia';
+						}
+						else if ($(this).find('A0_NAME').text()=='LT'){
+							$strana = 'Lithuania';
+						}
+						$region = 'No information';
+						if ($(this).find('A1_NAME').text()!=''){
+							$region = $(this).find('A1_NAME').text();
+						}
+						$gorod = 'No information';
+						if ($(this).find('A2_NAME').text()!=''){
+							$gorod = $(this).find('A2_NAME').text();
+						}
+						$ulica = 'No information';
+						if ($(this).find('A5_NAME').text()!=''){
+							$ulica = $(this).find('A5_NAME').text();
+						}
+						$dom = 'No information';
+						if ($(this).find('A7_NAME').text()!=''){
+							$dom = $(this).find('A7_NAME').text();
+						}
+						$hv = 'No information';
+						if ($(this).find('SERVICE_HOURS').text()!=''){
+							$hv = $(this).find('SERVICE_HOURS').text();
+						}
+						$tip = 'No information';
+						if ($(this).find('TYPE').text()=='0'){
+							$tip = 'Почтовый автомат';
+						}
+						else if ($(this).find('TYPE').text()=='1'){
+							$tip = 'Почтовое отделение';
+						}
                         $('#tableBody').append(
                             '<tr>' +
                                 '<td>' +
                                     $(this).find('NAME').text() + '</td> ' +
                                 '<td>' +
-                                    $(this).find('TYPE').text() + '</td> ' +
+                                    $tip + '</td> ' +
                                 '<td>' +
-                                    $(this).find('A2_NAME').text() + '</td> ' +
-                                    '<td>' +
-                                    $(this).find('A3_NAME').text() + '</td> ' +
-                                    '<td>' +
-                                    $(this).find('SERVICE_HOURS').text() + '</td> ' +
+                                    'Страна: ' + $strana + ' | Регион: ' + $region + ' | Город: ' + $gorod + ' | Улица: ' + $ulica + ' | Дом: ' + $dom + '</td> ' +
+                                '<td>' +
+                                    $hv + '</td> ' +
                             '</tr>');
-                      });
-                    $(".threplace").text(function () {
-                            return $(this).text().replace("1", "Post office");
                     });
                 }
             });
