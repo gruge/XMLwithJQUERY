@@ -39,7 +39,7 @@
             //ajax call to load XML and parse it
             $.ajax({
                 type: 'GET',
-                url: 'https://res.cloudinary.com/dmsxwwfb5/raw/upload/v1591716537/book.xml',           // The file path.
+                url: 'book.xml',           // The file path.
                 dataType: 'xml',    
                 success: function(xml) {
                    //find all book tags, loop them and append to table body
