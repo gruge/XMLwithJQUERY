@@ -18,7 +18,7 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Type</th>
+          <th class="threplace">Type</th>
           <th>City</th>
           <th>Address</th>
           <th>Work hours</th>
@@ -59,6 +59,9 @@
                                     '<td>' +
                                     $(this).find('SERVICE_HOURS').text() + '</td> ' +
                             '</tr>');
+                        $(".threplace").text(function () {
+                            return $(this).text().replace("1", "Post office"); 
+                        });
                     });
                 }
             });
