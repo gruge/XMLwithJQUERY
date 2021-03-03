@@ -57,8 +57,8 @@
 			    	if ($(this).find('A3_NAME').text()!=''){ $Village = $(this).find('A3_NAME').text(); }
 			$Street = '-';
 				if ($(this).find('A5_NAME').text()!=''){ $Street = $(this).find('A5_NAME').text(); }
-			$House no = '-';
-				if ($(this).find('A7_NAME').text()!=''){ $House no = $(this).find('A7_NAME').text(); }
+			$Houseno = '-';
+				if ($(this).find('A7_NAME').text()!=''){ $Houseno = $(this).find('A7_NAME').text(); }
 			$SH = '-';
 				if ($(this).find('SERVICE_HOURS').text()!=''){ $SH = $(this).find('SERVICE_HOURS').text(); }
 			$Type = '-';
@@ -68,7 +68,7 @@
                             '<tr>' +
                                 '<td>' + $(this).find('NAME').text() + '</td>' +
                                 '<td>' + $Type + '</td>' +
-                                '<td>' + 'Country: ' +$Country+'<br/>'+'County: ' +$County+'<br/>'+'Town: ' +$Town+'<br/>'+ 'Village: ' +$Village+'<br/>'+'Street: ' +$Street+'<br/>'+'House no: ' +$House no+'</td> ' +
+                                '<td>' + 'Country: ' +$Country+'<br/>'+'County: ' +$County+'<br/>'+'Town: ' +$Town+'<br/>'+ 'Village: ' +$Village+'<br/>'+'Street: ' +$Street+'<br/>'+'House no: ' +$Houseno+'</td> ' +
                                 '<td>' +$SH + '</td> ' +
                             '</tr>');
                     });
