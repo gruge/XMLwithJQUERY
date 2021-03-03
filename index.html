@@ -49,16 +49,16 @@
 				if ($(this).find('A0_NAME').text()=='EE'){ $Country = 'Estonia'; }
 				else if ($(this).find('A0_NAME').text()=='LV'){ $Country = 'Latvia'; }
 				else if ($(this).find('A0_NAME').text()=='LT'){ $Country = 'Lithuania'; }
-			$Region = '-';
-				if ($(this).find('A1_NAME').text()!=''){ $Region = $(this).find('A1_NAME').text(); }
-			$City = '-';
-			    	if ($(this).find('A2_NAME').text()!=''){ $City = $(this).find('A2_NAME').text(); }
-			$District = '-';
-			    	if ($(this).find('A3_NAME').text()!=''){ $District = $(this).find('A3_NAME').text(); }
+			$County = '-';
+				if ($(this).find('A1_NAME').text()!=''){ $County = $(this).find('A1_NAME').text(); }
+			$Town = '-';
+			    	if ($(this).find('A2_NAME').text()!=''){ $Town = $(this).find('A2_NAME').text(); }
+			$Village = '-';
+			    	if ($(this).find('A3_NAME').text()!=''){ $Village = $(this).find('A3_NAME').text(); }
 			$Street = '-';
 				if ($(this).find('A5_NAME').text()!=''){ $Street = $(this).find('A5_NAME').text(); }
-			$Home = '-';
-				if ($(this).find('A7_NAME').text()!=''){ $Home = $(this).find('A7_NAME').text(); }
+			$House no = '-';
+				if ($(this).find('A7_NAME').text()!=''){ $House no = $(this).find('A7_NAME').text(); }
 			$SH = '-';
 				if ($(this).find('SERVICE_HOURS').text()!=''){ $SH = $(this).find('SERVICE_HOURS').text(); }
 			$Type = '-';
@@ -68,7 +68,7 @@
                             '<tr>' +
                                 '<td>' + $(this).find('NAME').text() + '</td>' +
                                 '<td>' + $Type + '</td>' +
-                                '<td>' + 'Country: ' +$Country+'<br/>'+'Region: ' +$Region+'<br/>'+'City: ' +$City+'<br/>'+ 'District: ' +$District+'<br/>'+'Street: ' +$Street+'<br/>'+'Home: ' +$Home+'</td> ' +
+                                '<td>' + 'Country: ' +$Country+'<br/>'+'County: ' +$County+'<br/>'+'Town: ' +$Town+'<br/>'+ 'Village: ' +$Village+'<br/>'+'Street: ' +$Street+'<br/>'+'House no: ' +$House no+'</td> ' +
                                 '<td>' +$SH + '</td> ' +
                             '</tr>');
                     });
